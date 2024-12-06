@@ -1,0 +1,23 @@
+# zed2i.yaml
+
+use_sim_time: False
+simulation:
+  sim_enabled: False
+  sim_address: ''
+  sim_port: 0
+stream:
+  stream_address: ''
+  stream_port: 0
+general:
+  camera_name: 'zed'
+  camera_model: 'zed2i'
+  serial_number: 0
+svo:
+  svo_path: 'live'
+pos_tracking:
+  publish_tf: True
+  publish_map_tf: True
+sensors:
+  publish_imu_tf: True
+gnss_fusion:
+  gnss_fusion_enabled: False

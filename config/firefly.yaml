@@ -1,0 +1,117 @@
+# firefly.yaml
+
+cameras:
+  - firefly_left
+  - firefly_right
+
+exposure_controllers:
+  - firefly_left.exposure_controller
+  - firefly_right.exposure_controller
+
+ffmpeg_image_transport:
+  encoding: hevc_nvenc
+
+firefly_left:
+  exposure_controller_name: firefly_left.exposure_controller
+  serial_number: '21039765'
+  camerainfo_url: '__camerainfo_url__' # Updated later
+  frame_id: firefly_left
+  debug: false
+  quiet: true
+  compute_brightness: true
+  adjust_timestamp: true
+  acquisition_timeout: 1000.0
+  buffer_queue_size: 1
+  acquisition_mode: 'SingleFrame'
+  exposure_mode: 'Timed'
+  exposure_auto: 'Off'
+  exposure_time: 10000.0
+  acquisition_frame_rate_enable: true
+  trigger_mode: 'On'
+  trigger_selector: 'FrameStart'
+  trigger_source: 'Line3'
+  trigger_activation: 'FallingEdge'
+  line_selector: 'Line3'
+  line_mode: 'Input'
+  sensor_shutter_mode: 'Global'
+  gain_auto: 'Off'
+  black_level_selector: 'All'
+  black_level: 0.0
+  black_level_clamping_enable: false
+  gamma: 1.0
+  gamma_enable: true
+  width: 1440
+  height: 1080
+  pixel_format: 'Mono8'
+  chunk_mode_active: true
+  chunk_selector_frame_id: 'FrameID'
+  chunk_enable_frame_id: true
+  chunk_selector_exposure_time: 'ExposureTime'
+  chunk_enable_exposure_time: true
+  chunk_selector_gain: 'Gain'
+  chunk_enable_gain: true
+  chunk_selector_timestamp: 'Timestamp'
+  chunk_enable_timestamp: true
+  parameter_file: '__parameter_file__'  # Updated later
+
+firefly_left.exposure_controller:
+  brightness_target: 120
+  brightness_tolerance: 10
+  max_exposure_time: 100000
+  min_exposure_time: 1000
+  max_gain: 0.0
+  gain_priority: false
+  type: 'master'
+
+firefly_right:
+  exposure_controller_name: firefly_right.exposure_controller
+  serial_number: '21081518'
+  camerainfo_url: '__camerainfo_url__' # Updated later
+  frame_id: firefly_right
+  debug: false
+  quiet: true
+  compute_brightness: true
+  adjust_timestamp: true
+  acquisition_timeout: 1000.0
+  buffer_queue_size: 1
+  acquisition_mode: 'SingleFrame'
+  exposure_mode: 'Timed'
+  exposure_auto: 'Off'
+  exposure_time: 10000.0
+  acquisition_frame_rate_enable: true
+  trigger_mode: 'On'
+  trigger_selector: 'FrameStart'
+  trigger_source: 'Line3'
+  trigger_activation: 'FallingEdge'
+  line_selector: 'Line3'
+  line_mode: 'Input'
+  sensor_shutter_mode: 'Global'
+  gain_auto: 'Off'
+  black_level_selector: 'All'
+  black_level: 0.0
+  black_level_clamping_enable: false
+  gamma: 1.0
+  gamma_enable: true
+  width: 1440
+  height: 1080
+  pixel_format: 'Mono8'
+  chunk_mode_active: true
+  chunk_selector_frame_id: 'FrameID'
+  chunk_enable_frame_id: true
+  chunk_selector_exposure_time: 'ExposureTime'
+  chunk_enable_exposure_time: true
+  chunk_selector_gain: 'Gain'
+  chunk_enable_gain: true
+  chunk_selector_timestamp: 'Timestamp'
+  chunk_enable_timestamp: true
+  parameter_file: '__parameter_file__'  # Updated later
+
+firefly_right.exposure_controller:
+  brightness_target: 120
+  brightness_tolerance: 10
+  max_exposure_time: 100000
+  min_exposure_time: 1000
+  max_gain: 0.0
+  gain_priority: false
+  type: 'follower'
+  master: 'firefly_left.exposure_controller'
